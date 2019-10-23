@@ -43,9 +43,9 @@ class Orders(models.Model):
     order_fit_sample_submitted_date = models.DateField(default=timezone.now)
     order_pps_sample_status = models.CharField(max_length=920)
     order_pps_sample_submitted_date = models.DateField(default=timezone.now)
-    order_order_remark = models.CharField(max_length=920)
+    order_order_remark = models.CharField(max_length=920,blank=True)
     order_order_date_of_entry = models.DateField(default=timezone.now)
-    order_client_id = models.ForeignKey(Client, on_delete = models.CASCADE)
+    order_client_id = models.ForeignKey(Client, on_delete = models.CASCADE,default=1)
 
     def __str__(self):
         return str(self.pk)

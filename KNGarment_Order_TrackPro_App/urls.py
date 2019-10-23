@@ -24,6 +24,9 @@ path('report_error/', views.report_error, name = 'report_error'),
 
 #register URL
 path('register/', views.register, name = 'register'),
+
+# Logout
+path('logout/', views.user_sign_out, name='logout'),
 # </------ Authentication URLs -----
 
 # ------ Sidemenu Urls ------
@@ -73,12 +76,12 @@ path('reports_job_worker_balancereport/', views.reports_job_worker_balancereport
 path('reports_stockreport/', views.reports_stockreport, name = 'reports_stockreport'),
 # </------ Sidemenu Urls ------
 
-#<------ All Form Submit Processing URL -----------
-#------add_new_order_form_submit URL -----
-#path('add_new_order_form_submit/', views.add_new_order_form_submit, name='add_new_order_form_submit'),
-
 #track_order_production_details URL
 path('track_order_production_details/', views.track_order_production_details, name = 'track_order_production_details'),
+
+#<------ All Form Submit Processing URL -----------
+#------add_new_order_form_submit URL -----
+path('add_new_order_form_submit/', views.add_new_order_form_submit, name='add_new_order_form_submit'),
 
 ]
 

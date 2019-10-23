@@ -1,14 +1,18 @@
 #External Imports
 from django.views import generic
 from django.shortcuts import render, HttpResponseRedirect
-#from django.contrib.auth import login, logout, authenticate
-#from django.urls import reverse_lazy, reverse
+from django.contrib.auth import login, logout, authenticate
+from django.urls import reverse_lazy, reverse
 #from django.contrib.auth.decorators import login_required
 #from django.utils.decorators import method_decorator
 #import json
 #from django.contrib.auth.hashers import make_password
 #from django.core.mail import send_mail
 #from bootstrap_modal_forms.generic import (BSModalCreateView,BSModalUpdateView,BSModalReadView,BSModalDeleteView)
+
+#Project Imports
+from KNGarment_Order_TrackPro_App.models import Client,Vendor,Orders,Process,Fabric_Order,Stiching,Washing,Finishing,Dispatch
+#from payment.forms import GroupdescriptionForm, GroupdescriptionForm_UpdateForm, Client_UpdateForm, Vendor_UpdateForm,AddAirticket, AddVisacost,AddHotel,AddRestaurant,AddEntrances,AddSapsan,AddGuide,AddTransport,DateForm,ServiceForm_UpdateForm,CustomUserForm,AddAllservices
 
 # Create your views here.
 
@@ -71,6 +75,38 @@ def user_login(request):
 
 def register(request):
     return render(request,'KNGarment_Order_TrackPro_App/register_form.html')
+
+# Logout
+def user_sign_out(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('KNGarment_Order_TrackPro_App:user_login'))
+
+def add_new_order_form_submit(request):
+    if request.method == "POST":
+        # Get all data relating to purchase order.
+        order_order_number = request.POST['order_order_number']
+        order_order_type = request.POST['order_order_type']
+        order_order_brands = request.POST['order_order_brands']
+        order_order_style_number = request.POST['order_order_style_number']
+        order_order_fit = request.POST['order_order_fit']
+        order_order_quantity = request.POST['order_order_quantity']
+        order_order_date = request.POST['order_order_date']
+        order_delivery_date = request.POST['order_delivery_date']
+        order_order_category = request.POST['order_order_category']
+        order_order_remark = request.POST['order_order_remark']
+        Orders.objects.create(order_order_number = order_order_number,
+                                        order_order_type = order_order_type,
+                                        order_order_brands = order_order_brands,
+                                        order_order_style_number = order_order_style_number,
+                                        order_order_fit = order_order_fit,
+                                        order_order_quantity = order_order_quantity,
+                                        order_order_date = order_order_date,
+                                        order_delivery_date = order_delivery_date,
+                                        order_order_category = order_order_category,
+                                        order_order_remark = order_order_remark,
+                                        order_client_id = Client.objects.latest('pk'))     
+    return HttpResponseRedirect(reverse('KNGarment_Order_TrackPro_App:track_order_details'))
+
 
 
 

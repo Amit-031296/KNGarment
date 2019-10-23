@@ -11,15 +11,16 @@
                 <hr>
                 <h2>Add New Order</h2>
                 <hr>
-                <form action="add_processes.html" method="post">
+                <form action={% url 'KNGarment_Order_TrackPro_App:add_new_order_form_submit' %} method="post">
+                {% csrf_token %}
                     <div class="form-row">
                         <div class="col">
-                            <label for="Order_number">Order Number</label>
-                            <input type="number" min="1" class="form-control" id="order_number">
+                            <label for="order_order_number">Order Number</label>
+                            <input type="number" min="1" class="form-control" id="order_order_number" name="order_order_number">
                         </div>
                         <div class="col">
-                            <label for="Order_type">Order Type</label><br>
-                            <select id="Order_type" class="form-control">
+                            <label for="order_order_type">Order Type</label><br>
+                            <select id="order_order_type" name="order_order_type" class="form-control">
                                 <option>Mens</option>
                                 <option>Ladies</option>
                                 <option>Boys Denim</option>
@@ -32,8 +33,8 @@
                     <div class="form-row">
 
                         <div class="col">
-                            <label for="Brands">Brands</label><br>
-                            <select id="Brands" class="form-control">
+                            <label for="order_order_brands">Brands</label><br>
+                            <select id="order_order_brands" name="order_order_brands" class="form-control">
                                 <option>DJ & C</option>
                                 <option>Pink & Blue</option>
                                 <option>Lee Cooper</option>
@@ -41,15 +42,15 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label for="Style_number">Style Number</label><br>
-                            <input type="text" class="form-control" id="style_number">
+                            <label for="order_order_style_number">Style Number</label><br>
+                            <input type="text" class="form-control" id="order_order_style_number" name="order_order_style_number">
                         </div>
                     </div>
                     <div class="form-row">
 
                         <div class="col">
-                            <label for="Fit">Fit</label><br>
-                            <select id="Fit" class="form-control">
+                            <label for="order_order_fit">Fit</label><br>
+                            <select id="order_order_fit" name="order_order_fit" class="form-control">
                                 <option>Slim</option>
                                 <option>Skinny</option>
                                 <option>Mid Waist</option>
@@ -57,30 +58,30 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label for="Quantity">Quantity</label>
-                            <input type="number" min="1" class="form-control" id="Quantity">
+                            <label for="order_order_quantity">Quantity</label>
+                            <input type="number" min="1" class="form-control" id="order_order_quantity" name="order_order_quantity">
                         </div>
                     </div>
                     <div class="form-row">
 
                         <div class="col">
-                            <label for="Order_date">Order Date</label><br>
-                            <input type="date" class="form-control" id="Order_date">
+                            <label for="order_order_date">Order Date</label><br>
+                            <input type="date" class="form-control" id="order_order_date" name="order_order_date">
                         </div>
                         <div class="col">
-                            <label for="Delivery_date">Delivery Date</label>
-                            <input type="date" class="form-control" id="Delivery_date">
+                            <label for="order_delivery_date">Delivery Date</label>
+                            <input type="date" class="form-control" id="order_delivery_date" name="order_delivery_date">
                         </div>
                     </div>
                     <div class="form-row">
 
                         <div class="col">
-                            <label for="category">Category</label><br>
-                            <input type="text" class="form-control" id="category">
+                            <label for="order_order_category">Category</label><br>
+                            <input type="text" class="form-control" id="order_order_category" name="order_order_category">
                         </div>
                         <div class="col">
-                            <label for="notes">Notes</label>
-                            <input type="text" class="form-control" id="notes">
+                            <label for="order_order_remark">Notes</label>
+                            <input type="text" class="form-control" id="order_order_remark" name="order_order_remark">
                         </div>
                     </div><br>
                     <!--   Checkbox Start-->

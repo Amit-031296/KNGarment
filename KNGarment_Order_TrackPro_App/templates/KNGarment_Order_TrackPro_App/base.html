@@ -64,34 +64,34 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="Add_orders.html">Add New Order</a>
+                    <a href="{% url 'KNGarment_Order_TrackPro_App:add_new_order_form' %}">Add New Order</a>
                 </li>
                 <li>
-                    <a href="Current.html">Current Orders</a>
+                    <a href="{% url 'KNGarment_Order_TrackPro_App:current_order' %}">Current Orders</a>
                 </li>
                 <li>
-                    <a href="delivered_orders.html">Delivered Orders</a>
+                    <a href="{% url 'KNGarment_Order_TrackPro_App:delivered_order' %}">Delivered Orders</a>
                 </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Track Orders</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="Order_registered.html">Registered Ordered</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:track_order_registered_order' %}">Registered Ordered</a>
                         </li>
                         <li>
-                            <a href="fabric_order.html">Fabric Ordered</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:track_order_fabric_order' %}">Fabric Ordered</a>
                         </li>
                         <li>
-                            <a href="stiching.html">Stiching</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:track_order_stiching_order' %}">Stiching</a>
                         </li>
                         <li>
-                            <a href="Washing.html">Washing</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:track_order_washing_order' %}">Washing</a>
                         </li>
                         <li>
-                            <a href="Finishing.html">Finished</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:track_order_finishing_order' %}">Finished</a>
                         </li>
                         <li>
-                            <a href="dispatch.html">Dispatched</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:track_order_dispatched_order' %}">Dispatched</a>
                         </li>
                     </ul>
                 </li>
@@ -99,10 +99,10 @@
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Payments</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu1">
                         <li>
-                            <a href="pending_order.html">Pending Orders</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:payment_pending' %}">Pending Orders</a>
                         </li>
                         <li>
-                            <a href="paid_order.html">Paid Orders</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:payment_paid' %}">Paid Orders</a>
                         </li>
 
                     </ul>
@@ -111,10 +111,10 @@
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reports</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu2">
                         <li>
-                            <a href="job_worker_bal_report.html">Job Worker - Balance Report</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:add_new_order_form' %}">Job Worker - Balance Report</a>
                         </li>
                         <li>
-                            <a href="stock_report.html">Stock Report</a>
+                            <a href="{% url 'KNGarment_Order_TrackPro_App:reports_stockreport' %}">Stock Report</a>
                         </li>
 
                     </ul>
@@ -122,12 +122,12 @@
 
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="login_form.html" class="btn btn-light">
+                        <a href="{% url 'KNGarment_Order_TrackPro_App:add_new_order_form' %}" class="btn btn-light">
                             <font color="#7386D5">Logout</font>
                         </a>
                     </li>
                     <li>
-                        <a href="report_error.html" class="article">Report Error</a>
+                        <a href="{% url 'KNGarment_Order_TrackPro_App:report_error' %}" class="article">Report Error</a>
                     </li>
                 </ul>
             </ul>
