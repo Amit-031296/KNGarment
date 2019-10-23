@@ -85,5 +85,7 @@ path('add_new_order_form_submit/', views.add_new_order_form_submit, name='add_ne
 
 path('add_new_fabric_order_form_submit/', views.add_new_fabric_order_form_submit, name='add_new_fabric_order_form_submit'),
 
+path('add_new_stiching_form_submit/', views.add_new_stiching_form_submit, name='add_new_stiching_form_submit'),
+
 ]
 

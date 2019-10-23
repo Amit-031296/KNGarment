@@ -100,6 +100,7 @@ class Stiching(Process):
     stiching_opening_stock_date = models.DateField(default=timezone.now)
     stiching_fabric_bill_date = models.DateField(default=timezone.now)
     stiching_fabric_used = models.CharField(max_length=920)
+    stiching_fabric_bill_number = models.CharField(max_length=920,blank=True)
 
     def __str__(self):
         return str(self.pk)

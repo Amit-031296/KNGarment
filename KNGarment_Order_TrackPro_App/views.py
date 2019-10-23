@@ -22,8 +22,10 @@ def add_new_order_form(request):
     return render(request,'KNGarment_Order_TrackPro_App/Add_orders.html')
 
 def add_processes(request,pk):
+    fabric_bill_numbers = Fabric_Order.objects.all()
     order_object = Orders.objects.get(pk=pk)
-    data = {'orders':order_object}
+    data = {'orders':order_object,
+            'fabric_bill_numbers':fabric_bill_numbers}
     return render(request,'KNGarment_Order_TrackPro_App/add_processes.html',data)
 
 def current_order(request):
@@ -126,6 +128,50 @@ def add_new_fabric_order_form_submit(request):
                                         process_vendor_name = process_vendor_name,
                                         process_received_quantity = process_received_quantity,
                                         process_delivery_date = process_delivery_date,
+                                        process_vendor_id=Vendor.objects.latest('pk'),
+                                        process_order_id=Orders.objects.latest('pk'))
+        Order_object = Orders.objects.latest('order_order_date_of_entry')
+        
+        return HttpResponseRedirect(reverse('KNGarment_Order_TrackPro_App:track_order_details',kwargs={'pk': Order_object.pk}))
+
+def add_new_stiching_form_submit(request):
+    if request.method == "POST":
+        # Get all data relating to that order.
+        process_vendor_name = request.POST['process_vendor_name']
+        process_vendor_location = request.POST['process_vendor_location']
+        stiching_average_one = request.POST['stiching_average_one']
+        stiching_average_two = request.POST['stiching_average_two']
+        stiching_average_three = request.POST['stiching_average_three']
+        stiching_rate_one = request.POST['stiching_rate_one']
+        stiching_rate_two = request.POST['stiching_rate_two']
+        stiching_rate_three = request.POST['stiching_rate_three']
+        process_delivery_date = request.POST['process_delivery_date']
+        stiching_opening_fabric_stock = request.POST['stiching_opening_fabric_stock']
+        stiching_opening_stock_date = request.POST['stiching_opening_stock_date']
+        process_received_date = request.POST['process_received_date']
+        stiching_fabric_bill_number = request.POST['stiching_fabric_bill_number']
+        stiching_fabric_bill_date = request.POST['stiching_fabric_bill_date']
+        process_received_quantity = request.POST['process_received_quantity']
+        stiching_fabric_used = request.POST['stiching_fabric_used']
+        stiching_fabric_bill_number = request.POST['stiching_fabric_bill_number']
+        process_bill_file = request.POST['process_bill_file']
+        Stiching.objects.create(process_vendor_name = process_vendor_name,
+                                        process_vendor_location = process_vendor_location,
+                                        stiching_average_one = stiching_average_one,
+                                        stiching_average_two = stiching_average_two,
+                                        stiching_average_three=stiching_average_three,
+                                        stiching_rate_one=stiching_rate_one,
+                                        stiching_rate_two = stiching_rate_two,
+                                        stiching_rate_three=stiching_rate_three,
+                                        process_delivery_date=process_delivery_date,
+                                        stiching_opening_fabric_stock=stiching_opening_fabric_stock,
+                                        stiching_opening_stock_date=stiching_opening_stock_date,
+                                        process_received_date=process_received_date,
+                                        stiching_fabric_bill_date=stiching_fabric_bill_date,
+                                        process_received_quantity=process_received_quantity,
+                                        stiching_fabric_used=stiching_fabric_used,
+                                        stiching_fabric_bill_number=stiching_fabric_bill_number,
+                                        process_bill_file=process_bill_file,
                                         process_vendor_id=Vendor.objects.latest('pk'),
                                         process_order_id=Orders.objects.latest('pk'))
         Order_object = Orders.objects.latest('order_order_date_of_entry')

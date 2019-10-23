@@ -113,99 +113,106 @@
             <hr>
             <h2>Stiching Details</h2>
             <hr>
-            <form action="Order_Details_2.html" method="post">
+             <form action={% url 'KNGarment_Order_TrackPro_App:add_new_stiching_form_submit' %} method="post">
+                {% csrf_token %}
                 <div class="form-row">
                     <div class="col">
-                        <label for="job_worker_name">Job Worker Name</label>
-                        <input type="text" min="1" class="form-control" id="job_worker_name">
+                        <label for="process_vendor_name">Job Worker Name</label>
+                        <input type="text" min="1" class="form-control" id="process_vendor_name" name="process_vendor_name">
                     </div>
                     <div class="col">
-                        <label for="job_worker_location">Job Worker Location</label>
-                        <input type="text" min="1" class="form-control" id="job_worker_location">
+                        <label for="process_vendor_location">Job Worker Location</label>
+                        <input type="text" min="1" class="form-control" id="process_vendor_location" name="process_vendor_location">
                     </div>
                 </div>
                 <div class="form-row">
 
                     <div class="col">
-                        <label for="avrg1">Average</label>
-                        <input type="number" min="1" class="form-control" id="average1">
+                        <label for="stiching_average_one">Average</label>
+                        <input type="number" min="1" class="form-control" id="stiching_average_one" name="stiching_average_one">
                     </div>
                     <div class="col">
-                        <label for="quantity1">Quantity</label><br>
-                        <input type="number" min="1" class="form-control" id="quantity1">
-                    </div>
-                </div>
-                <div class="form-row">
-
-                    <div class="col">
-                        <label for="avrg2">Average</label>
-                        <input type="number" min="1" class="form-control" id="average2">
-                    </div>
-                    <div class="col">
-                        <label for="quantity2">Quantity</label><br>
-                        <input type="number" min="1" class="form-control" id="quantity2">
+                        <label for="stiching_rate_one">Quantity</label><br>
+                        <input type="number" min="1" class="form-control" id="stiching_rate_one" name="stiching_rate_one">
                     </div>
                 </div>
                 <div class="form-row">
 
                     <div class="col">
-                        <label for="avrg3">Average</label>
-                        <input type="number" min="1" class="form-control" id="average3">
+                        <label for="stiching_average_two">Average</label>
+                        <input type="number" min="1" class="form-control" id="stiching_average_two" name="stiching_average_two">
                     </div>
                     <div class="col">
-                        <label for="quantity3">Quantity</label><br>
-                        <input type="number" min="1" class="form-control" id="quantity3">
+                        <label for="stiching_rate_two">Quantity</label><br>
+                        <input type="number" min="1" class="form-control" id="stiching_rate_two" name="stiching_rate_two">
                     </div>
                 </div>
                 <div class="form-row">
 
                     <div class="col">
-                        <label for="deliery_date">Delivery Date</label><br>
-                        <input type="date" class="form-control" id="delivery_date">
+                        <label for="stiching_average_three">Average</label>
+                        <input type="number" min="1" class="form-control" id="stiching_average_three" name="stiching_average_three">
                     </div>
                     <div class="col">
-                        <label for="opening_fabric_stock">Opening Fabric Stock</label>
-                        <input type="number" min="1" class="form-control" id="opening_fabric_stock">
+                        <label for="stiching_rate_three">Quantity</label><br>
+                        <input type="number" min="1" class="form-control" id="stiching_rate_three" name="stiching_rate_three">
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="col">
+                        <label for="process_delivery_date">Delivery Date</label><br>
+                        <input type="date" class="form-control" id="process_delivery_date" name="process_delivery_date">
+                    </div>
+                    <div class="col">
+                        <label for="stiching_opening_fabric_stock">Opening Fabric Stock</label>
+                        <input type="number" min="1" class="form-control" id="stiching_opening_fabric_stock" name="stiching_opening_fabric_stock">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <label for="opening_stock_date">Opening Stock Date</label><br>
-                        <input type="date" class="form-control" id="opening_stock_date">
+                        <label for="stiching_opening_stock_date">Opening Stock Date</label><br>
+                        <input type="date" class="form-control" id="stiching_opening_stock_date" name="stiching_opening_stock_date">
                     </div>
                     <div class="col">
-                        <label for="fabric_recieved_date">Fabric Received Date</label><br>
-                        <input type="date" class="form-control" id="fabric_recieved_date">
+                        <label for="process_received_date">Fabric Received Date</label><br>
+                        <input type="date" class="form-control" id="process_received_date" name="process_received_date">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col">
+                <div class="col">
                         <label for="fabric_bill_number">Fabric Bill Number</label><br>
-                        <input type="number" min="1" class="form-control" id="fabric_bill_number">
+                        <div class="form-group">
+                            <select class="form-control" id="stiching_fabric_bill_number" name="stiching_fabric_bill_number">
+                                {% for bill_number in fabric_bill_numbers %}
+                                <option value={{ bill_number.process_bill_number }}>{{ bill_number.process_bill_number }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                     </div>
                     <div class="col">
-                        <label for="fabri_bill_date">Fabric Bill Date</label><br>
-                        <input type="date" class="form-control" id="fabri_bill_date">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="fabric_quantity_recieved">Fabric Quantity Received </label><br>
-                        <input type="number" min="1" class="form-control" id="fabric_quantity_recieved">
-                    </div>
-                    <div class="col">
-                        <label for="fabric_used">Fabric Used</label><br>
-                        <input type="text" class="form-control" id="fabric_used">
+                        <label for="stiching_fabric_bill_date">Fabric Bill Date</label><br>
+                        <input type="date" class="form-control" id="stiching_fabric_bill_date" name="stiching_fabric_bill_date">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <label for="Stiching_bill_no">Bill Number </label><br>
-                        <input type="number" min="1" class="form-control" id="Stiching_bill_no">
+                        <label for="process_received_quantity">Fabric Quantity Received </label><br>
+                        <input type="number" min="1" class="form-control" id="process_received_quantity" name="process_received_quantity">
                     </div>
                     <div class="col">
-                        <label for="stiching_bill_file">Bill File</label><br>
-                        <input type="file" class="form-control" id="stiching_bill_file">
+                        <label for="stiching_fabric_used">Fabric Used</label><br>
+                        <input type="text" class="form-control" id="stiching_fabric_used" name="stiching_fabric_used">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="stiching_fabric_bill_number">Bill Number </label><br>
+                        <input type="number" min="1" class="form-control" id="stiching_fabric_bill_number" name='stiching_fabric_bill_number'>
+                    </div>
+                    <div class="col">
+                        <label for="process_bill_file">Bill File</label><br>
+                        <input type="file" class="form-control" id="process_bill_file" name="process_bill_file">
                     </div>
                 </div>
 
