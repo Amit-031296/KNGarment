@@ -44,7 +44,7 @@ class Orders(models.Model):
     order_pps_sample_status = models.CharField(max_length=920)
     order_pps_sample_submitted_date = models.DateField(default=timezone.now)
     order_order_remark = models.CharField(max_length=920,blank=True)
-    order_order_date_of_entry = models.DateField(default=timezone.now)
+    order_order_date_of_entry = models.DateTimeField(default=timezone.now)
     order_client_id = models.ForeignKey(Client, on_delete = models.CASCADE,default=1)
 
     def __str__(self):
@@ -58,13 +58,13 @@ class Orders(models.Model):
 class Process(models.Model):
     process_vendor_name = models.CharField(max_length=920,blank=True)
     process_vendor_location = models.CharField(max_length=920,blank=True)
-    process_received_quantity = models.IntegerField(blank=True)
+    process_received_quantity = models.IntegerField(blank=True,null=True)
     process_received_date = models.DateField(default=timezone.now)
     process_delivery_date = models.DateField(default=timezone.now)
-    process_bill_number = models.IntegerField(blank=True)
+    process_bill_number = models.IntegerField(blank=True,default=0)
     process_bill_file = models.FileField(blank=True)
     process_payment_status = models.CharField(max_length=920,blank=True)
-    process_date_of_entry = models.DateField(default=timezone.now)
+    process_date_of_entry = models.DateTimeField(default=timezone.now)
     process_vendor_id = models.ForeignKey(Vendor, on_delete = models.CASCADE,blank=True)
     process_order_id = models.ForeignKey(Orders, on_delete=models.CASCADE,blank=True)
     objects = InheritanceManager()
@@ -79,7 +79,7 @@ class Process(models.Model):
 #Fabric Order[Child Model]
 class Fabric_Order(Process):
     fabric_order_sort_number = models.CharField(max_length=920)
-    fabric_order_quantity = models.IntegerField()
+    fabric_order_quantity = models.IntegerField(blank=True,null=True)
     
     def __str__(self):
         return str(self.pk)

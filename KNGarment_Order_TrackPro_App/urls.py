@@ -34,7 +34,7 @@ path('logout/', views.user_sign_out, name='logout'),
 path("", views.add_new_order_form, name = 'add_new_order_form'),
 
 #add_processes URL
-path('add_processes/', views.add_processes, name = 'add_processes'),
+path('add_processes/<int:pk>', views.add_processes, name = 'add_processes'),
 
 #current_order URL
 path('current_order/', views.current_order, name = 'current_order'),
@@ -46,7 +46,7 @@ path('delivered_order/', views.delivered_order, name = 'delivered_order'),
 path('track_order_registered_order/', views.track_order_registered_order, name = 'track_order_registered_order'),
 
 #track_order_details URL
-path('track_order_details/', views.track_order_details, name = 'track_order_details'),
+path('track_order_details/<int:pk>', views.track_order_details, name = 'track_order_details'),
 
 #track_order_fabric_order URL
 path('track_order_fabric_order/', views.track_order_fabric_order, name = 'track_order_fabric_order'),
@@ -82,6 +82,8 @@ path('track_order_production_details/', views.track_order_production_details, na
 #<------ All Form Submit Processing URL -----------
 #------add_new_order_form_submit URL -----
 path('add_new_order_form_submit/', views.add_new_order_form_submit, name='add_new_order_form_submit'),
+
+path('add_new_fabric_order_form_submit/', views.add_new_fabric_order_form_submit, name='add_new_fabric_order_form_submit'),
 
 ]
 

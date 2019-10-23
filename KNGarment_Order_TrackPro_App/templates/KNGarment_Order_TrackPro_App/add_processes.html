@@ -21,82 +21,84 @@
                 </button>
                 <hr>
                 <h2>Order Details</h2>
-
                 <table class="table" style="text-align: center">
                     <tbody>
                         <tr>
                             <td class="heading_bold">Order Number</td>
-                            <td>111</td>
+                            <td class="text-center">{{orders.order_order_number}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Order Type</td>
-                            <td>aaa</td>
+                            <td class="text-center">{{orders.order_order_type}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Brand</td>
-                            <td>ssss</td>
+                            <td class="text-center">{{orders.order_order_brands}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Style Number</td>
-                            <td>10</td>
+                            <td class="text-center">{{orders.order_order_style_number}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Fit </td>
-                            <td>slim</td>
+                            <td class="text-center">{{orders.order_order_fit}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Quantity</td>
-                            <td>200</td>
+                            <td class="text-center">{{orders.order_order_quantity}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Order Date</td>
-                            <td>10-09-2019</td>
+                            <td class="text-center">{{orders.order_order_date}}</td>
 
                         </tr>
                         <tr>
                             <td class="heading_bold">Delivery Date</td>
-                            <td>30-09-2019</td>
+                            <td class="text-center">{{orders.order_delivery_date}}</td>
                         </tr>
                         <tr>
                             <td class="heading_bold">Category</td>
-                            <td>aaa</td>
+                            <td class="text-center">{{orders.order_order_category}}</td>
                         </tr>
                         <tr>
                             <td class="heading_bold">Notes</td>
-                            <td>aaaaaaa</td>
+                            <td class="text-center">{{orders.order_order_remark}}</td>
                         </tr>
                     </tbody>
                 </table>
-            </div><br>
+                <br>
+
+                
             <hr>
             <h2>Fabric Details</h2>
             <hr>
-            <form action="Order_Details_2.html" method="post">
+            <form action={% url 'KNGarment_Order_TrackPro_App:add_new_fabric_order_form_submit' %} method="post">
+                {% csrf_token %}
                 <div class="form-row">
                     <div class="col">
-                        <label for="sort_number">Sort Number</label>
-                        <input type="number" min="1" class="form-control" id="sort_number">
+                        <label for="fabric_order_sort_number">Sort Number</label>
+                        <input type="number" min="1" class="form-control" id="fabric_order_sort_number" name="fabric_order_sort_number">
                     </div>
                     <div class="col">
                         <label for="fabric_supplier">Fabric Supplier</label>
-                        <input type="text" min="1" class="form-control" id="fabric_supplier">
+                        <input type="text" min="1" class="form-control" id="process_vendor_name" name="process_vendor_name">
                     </div>
                 </div>
                 <div class="form-row">
 
                     <div class="col">
-                        <label for="order_quantity">Order Quantity</label>
-                        <input type="number" min="1" class="form-control" id="order_quantity">
+                        <label for="fabric_order_quantity">Order Quantity</label>
+                        <input type="number" min="1" class="form-control" id="process_received_quantity" name="process_received_quantity">
                     </div>
                     <div class="col">
-                        <label for="delivery_date">Delivery Date</label><br>
-                        <input type="date" class="form-control" id="delivery_date">
+                        <label for="process_delivery_date">Delivery Date</label><br>
+                        <input type="date" class="form-control" id="process_delivery_date" name="process_delivery_date">
                     </div>
                 </div><br>
                 <div class="form-row">
