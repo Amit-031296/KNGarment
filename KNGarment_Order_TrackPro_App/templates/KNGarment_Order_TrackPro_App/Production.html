@@ -1,99 +1,17 @@
-<!DOCTYPE html>
-<html>
+{% extends 'KNGarment_Order_TrackPro_App/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% block stylesheets %}
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<style type="text/css">
+.modal-body {
+ height:50% !important;
+}
+</style>
+{% endblock stylesheets %}
 
-    <title>KN Garments</title>
-
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css" />
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    
-    <style>
-            .modal-body {
- 
- 
-          height:50% !important;
-    </style>
-
-</head>
-
-<body>
-
-    <div class="wrapper">
-
-        <!-- SIDEBAR  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>KN Garments</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="Add_orders.html">Add Orders</a>
-                </li>
-                <li>
-                    <a href="Current.html">Current Orders</a>
-                </li>
-                <li>
-                    <a href="On_going.html">Delivered</a>
-                </li>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Order Status</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="Order_registered.html">Order Registered</a>
-                        </li>
-                        <li>
-                            <a href="PPS_sent.html">PPS Sent</a>
-                        </li>
-                        <li>
-                            <a href="Production.html">Production</a>
-                        </li>
-                        <li>
-                            <a href="Washing.html">Washing</a>
-                        </li>
-                        <li>
-                            <a href="Finishing.html">Finishing</a>
-                        </li>
-                        <li>
-                            <a href="Delivery_ready.html">Delivery Ready</a>
-                        </li>
-                        <li>
-                            <a href="In_stock.html">In Stock</a>
-                        </li>
-                        <li>
-                            <a href="Upcoming_payment.html">Upcoming Payments</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="login_form.html" class="btn btn-light">
-                        <font color="#7386D5">Logout</font>
-                    </a>
-                </li>
-                <li>
-                    <a href="report_error.html" class="article">Report Error</a>
-                </li>
-            </ul>
-        </nav>
-        <!--SIDEBAR ENDS HERE-->
-
+{% block content %}
         <!-- PAGE CONTENT  -->
         <div id="content">
             <div class="container-fluid">
@@ -183,39 +101,25 @@
             </div>
         </div>
         <!--PAGE CONTENT ENDS HERE-->
+{% endblock content %}
 
+{% block script %}
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 
-    </div>
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!--jQuery-->
-    <script type="text/javascript" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+{% endblock %}
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
+{% block extrascript %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#test_table').DataTable();
+    });
+</script>
 
-            $('#sidebarCollapse').on('click', function() {
-                $('#sidebar, #content').toggleClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#test_table').DataTable();
-        });
-    </script>
-
-</body>
-
-</html>
+{% endblock %}

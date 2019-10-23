@@ -15,6 +15,9 @@ from django.shortcuts import render, HttpResponseRedirect
 def add_new_order_form(request):
     return render(request,'KNGarment_Order_TrackPro_App/Add_orders.html')
 
+def add_processes(request):
+    return render(request,'KNGarment_Order_TrackPro_App/add_processes.html')
+
 def current_order(request):
     return render(request,'KNGarment_Order_TrackPro_App/Current.html')
 
@@ -23,6 +26,9 @@ def delivered_order(request):
 
 def track_order_registered_order(request):
     return render(request,'KNGarment_Order_TrackPro_App/Order_registered.html')
+
+def track_order_details(request):
+    return render(request,'KNGarment_Order_TrackPro_App/Order_Details_2.html')
 
 def track_order_fabric_order(request):
     return render(request,'KNGarment_Order_TrackPro_App/fabric_order.html')
@@ -50,6 +56,23 @@ def reports_job_worker_balancereport(request):
 
 def reports_stockreport(request):
     return render(request,'KNGarment_Order_TrackPro_App/stock_report.html')
+
+def track_order_production_details(request):
+    return render(request,'KNGarment_Order_TrackPro_App/Production.html')
+
+def report_error(request):
+    return render(request,'KNGarment_Order_TrackPro_App/report_error.html')
+
+def forget_password(request):
+    return render(request,'KNGarment_Order_TrackPro_App/forget_password.html')
+
+def user_login(request):
+    return render(request,'KNGarment_Order_TrackPro_App/login_form.html')
+
+def register(request):
+    return render(request,'KNGarment_Order_TrackPro_App/register_form.html')
+
+
 
 
 

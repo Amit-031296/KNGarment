@@ -8,25 +8,30 @@ app_name = 'KNGarment_Order_TrackPro_App'
 urlpatterns = [
 # --- Pages Urls ---
 # ------ Authentication URLs -----
-# Login
-#path("user_login/" , views.user_login, name="user_login"),
+#Login
+path("user_login/" , views.user_login, name="user_login"),
 
-# Forget Password
-#path("forgetpassword/" , views.forgetpassword, name="forgetpassword"),
+#forget_password URL
+path('forget_password/', views.forget_password, name = 'forget_password'),
 
 # Logout
 #path('logout/', views.user_sign_out, name='logout'),
 
-# url for report error page
-#path('report_error/', views.report_error, name ='report_error'),
+#report_error URL
+path('report_error/', views.report_error, name = 'report_error'),
 #path('report_error_submit/', views.report_error_submit, name ='report_error_submit'),
 #path('report_error_success/', views.report_error_success, name ='report_error_success'),
 
+#register URL
+path('register/', views.register, name = 'register'),
 # </------ Authentication URLs -----
 
 # ------ Sidemenu Urls ------
 #add_new_order Form URL
 path("", views.add_new_order_form, name = 'add_new_order_form'),
+
+#add_processes URL
+path('add_processes/', views.add_processes, name = 'add_processes'),
 
 #current_order URL
 path('current_order/', views.current_order, name = 'current_order'),
@@ -36,6 +41,9 @@ path('delivered_order/', views.delivered_order, name = 'delivered_order'),
 
 #track_order_registered_order URL
 path('track_order_registered_order/', views.track_order_registered_order, name = 'track_order_registered_order'),
+
+#track_order_details URL
+path('track_order_details/', views.track_order_details, name = 'track_order_details'),
 
 #track_order_fabric_order URL
 path('track_order_fabric_order/', views.track_order_fabric_order, name = 'track_order_fabric_order'),
@@ -68,5 +76,9 @@ path('reports_stockreport/', views.reports_stockreport, name = 'reports_stockrep
 #<------ All Form Submit Processing URL -----------
 #------add_new_order_form_submit URL -----
 #path('add_new_order_form_submit/', views.add_new_order_form_submit, name='add_new_order_form_submit'),
+
+#track_order_production_details URL
+path('track_order_production_details/', views.track_order_production_details, name = 'track_order_production_details'),
+
 ]
 
