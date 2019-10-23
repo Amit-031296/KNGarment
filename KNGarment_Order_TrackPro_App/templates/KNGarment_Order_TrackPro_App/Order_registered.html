@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>KN Garments</title>
+
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css" />
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+    <style>
+            .modal-body {
+ 
+ 
+          height:50% !important;
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+          <!-- SIDEBAR  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>KN Garments</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="Add_orders.html">Add New Order</a>
+                </li>
+                <li>
+                    <a href="Current.html">Current Orders</a>
+                </li>
+                <li>
+                    <a href="delivered_orders.html">Delivered Orders</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Track Orders</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="Order_registered.html">Registered Ordered</a>
+                        </li>
+                        <li>
+                            <a href="fabric_order.html">Fabric Ordered</a>
+                        </li>
+                        <li>
+                            <a href="stiching.html">Stiching</a>
+                        </li>
+                        <li>
+                            <a href="Washing.html">Washing</a>
+                        </li>
+                        <li>
+                            <a href="Finishing.html">Finished</a>
+                        </li>
+                        <li>
+                            <a href="dispatch.html">Dispatched</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Payments</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu1">
+                        <li>
+                            <a href="pending_order.html">Pending Orders</a>
+                        </li>
+                        <li>
+                            <a href="paid_order.html">Paid Orders</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reports</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu2">
+                        <li>
+                            <a href="job_worker_bal_report.html">Job Worker - Balance Report</a>
+                        </li>
+                        <li>
+                            <a href="stock_report.html">Stock Report</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <a href="login_form.html" class="btn btn-light">
+                            <font color="#7386D5">Logout</font>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="report_error.html" class="article">Report Error</a>
+                    </li>
+                </ul>
+            </ul>
+        </nav>
+        <!--SIDEBAR ENDS HERE-->
+
+        <!-- PAGE CONTENT  -->
+        <div id="content">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn" style="background-color: #87c241;color: white">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <hr>
+                <h2>Order Registered</h2>
+                <hr>
+                <div>
+                    <table id="test_table" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Order Type</th>
+                                <th>Brands</th>
+                                <th>Style Number</th>
+                                <th>Fit</th>
+                                <th>Quantity</th>
+                                <th>Order Date</th>
+                                <th>Delivery Date</th>
+                                <th>Category</th>
+                                <th>Cutting Ratio</th>
+                                <th>Status</th>
+                                <th>Update Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mens</td>
+                                <td>DJ & C</td>
+                                <td>32</td>
+                                <td>slim</td>
+                                <td>20000</td>
+                                <td>06-11-2019</td>
+                                <td>22-11-2019</td>
+                                <td>sssppppp</td>
+                                <td>Mens And Ladies</td>
+                                <td>Registered</td>
+                                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Update</button></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal -->
+                <div class="container">
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Update Status</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                
+                                 <div class="form-row">
+                                     <div class="col">
+                                         <label for="Pattern_type">Update Status</label><br>
+                                         <select id="Pattern_type" class="form-control">
+                                             <option>Registerd</option>
+                                             <option>PPS Sent</option>
+                                             <option>Production</option>
+                                             <option>Washing</option>
+                                             <option>Finishing</option>
+                                             <option>Delivery Ready</option>
+                                             <option>In Stock</option>
+                                             <option>Upcoming Payment</option>
+
+                                         </select>
+                                     </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default">Update</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                    </div>
+
+
+            </div>
+        </div>
+        <!--PAGE CONTENT ENDS HERE-->
+
+
+    </div>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--jQuery-->
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#sidebarCollapse').on('click', function() {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#test_table').DataTable();
+        });
+    </script>
+
+</body>
+
+</html>
