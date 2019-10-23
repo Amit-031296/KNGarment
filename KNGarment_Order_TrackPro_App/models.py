@@ -114,7 +114,8 @@ class Washing(Process):
     washing_process_name = models.CharField(max_length=920)
     washing_rate = models.IntegerField()
     washing_order_date = models.DateField(default=timezone.now)
-
+    washing_delivery_quantity = models.IntegerField(blank=True,null=True)
+    
     def __str__(self):
         return str(self.pk)
     

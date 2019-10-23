@@ -178,7 +178,34 @@ def add_new_stiching_form_submit(request):
         
         return HttpResponseRedirect(reverse('KNGarment_Order_TrackPro_App:track_order_details',kwargs={'pk': Order_object.pk}))
 
-
+def add_new_washing_order_form_submit(request):
+    if request.method == "POST":
+        # Get all data relating to that order.
+        process_vendor_name = request.POST['process_vendor_name']
+        process_vendor_location = request.POST['process_vendor_location']
+        process_received_quantity = request.POST['process_received_quantity']
+        process_received_date = request.POST['process_received_date']
+        washing_process_name = request.POST['washing_process_name']
+        washing_rate = request.POST['washing_rate']
+        process_delivery_date = request.POST['process_delivery_date']
+        washing_delivery_quantity = request.POST['washing_delivery_quantity']
+        process_bill_number = request.POST['process_bill_number']
+        process_bill_file = request.POST['process_bill_file']
+        Washing.objects.create(process_vendor_name = process_vendor_name,
+                                        process_vendor_location = process_vendor_location,
+                                        process_received_quantity = process_received_quantity,
+                                        process_received_date = process_received_date,
+                                        washing_process_name = washing_process_name,
+                                        washing_rate = washing_rate,
+                                        process_delivery_date = process_delivery_date,
+                                        washing_delivery_quantity = washing_delivery_quantity,
+                                        process_bill_number = process_bill_number,
+                                        process_bill_file = process_bill_file,
+                                        process_vendor_id=Vendor.objects.latest('pk'),
+                                        process_order_id=Orders.objects.latest('pk'))
+        Order_object = Orders.objects.latest('order_order_date_of_entry')
+        
+        return HttpResponseRedirect(reverse('KNGarment_Order_TrackPro_App:track_order_details',kwargs={'pk': Order_object.pk}))
 
 
 
